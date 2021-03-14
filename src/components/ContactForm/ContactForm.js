@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
+import './ContactForm.scss';
 
 const INITIAL_STATE = {
   name: '',
@@ -48,21 +49,32 @@ class ContactForm extends Component {
     const { handleInput, handleSubmit } = this;
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="ContactForm">
         <label>
-          <p>Name</p>
-          <input type="text" value={name} onChange={handleInput} name="name" />
+          <p className="ContactForm__label">Name</p>
+          <input
+            className="ContactForm__text-input"
+            type="text"
+            value={name}
+            onChange={handleInput}
+            name="name"
+          />
         </label>{' '}
         <label>
-          <p>Number</p>
+          <p className="ContactForm__label">Number</p>
           <input
+            className="ContactForm__text-input"
             type="tel"
             value={number}
             onChange={handleInput}
             name="number"
           />
         </label>
-        <button type="submit">Add contact</button>
+        <div className="ContactForm__btnWrapper">
+          <button className="ContactForm__btn" type="submit">
+            Add contact
+          </button>
+        </div>
       </form>
     );
   }
